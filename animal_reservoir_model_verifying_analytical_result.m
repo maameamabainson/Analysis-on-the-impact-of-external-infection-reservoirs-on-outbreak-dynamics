@@ -4,16 +4,12 @@ function R0 = animal_reservoir_model_verifying_analytical_result(kappa)
 % quantities.
 %
 %
-% Used to produce Figures 2,3 and 4 in the paper. 
-%
-%
 %   Usage:
 %       R0 = animal_reservoir_model_verifying_analytical_result(kappa)
 %  
 %   Returns:
 %       R0:                     Basic reproduction number
 %       
-%       Plots:                  Figure 2 or 3, Figure 4
 %
 %   Required:
 %       kappa:                  Choice of kappa parameter, N*force of external infection.
@@ -69,7 +65,6 @@ function R0 = animal_reservoir_model_verifying_analytical_result(kappa)
     end 
    
 
-
     
     %% Plots 
     figure()
@@ -99,6 +94,29 @@ function R0 = animal_reservoir_model_verifying_analytical_result(kappa)
     xlabel('Population size, N','Interpreter','latex')
     ylabel('Ratio','Interpreter','latex')
     
+
+
+    %% Policy values for SISk 
+    PP = 0; QQ = 0; %policy parameters; PP: percentage of strategy given to preventive measures; QQ: percentage of strategy given to curative measures
+
+
+
+    %% Parameters
+    beta_policy = (1-(PP*0.2))*1.61402;
+    gam_policy = 1*(1+(QQ*0.2));
+    
+    N = 200;
+    k_policy = 5;
+    
+    R0 = beta_policy/gam_policy;
+   
+    nu = k_policy/beta_policy;
+    numer = sqrt(2*pi); 
+    denom = (N^(0.5-nu))*gamma(nu + 1)*beta_policy; 
+    tau_sisk = (numer/denom)*((R0/(R0-1))^(1-nu))*exp(N*(log(R0) - 1 + (1/R0))); 
+   
+    fprintf("Policy result = %.8g\n",tau_sisk)
+
 
 
     %% Creating the transition rate matrix for the animal reservoir model

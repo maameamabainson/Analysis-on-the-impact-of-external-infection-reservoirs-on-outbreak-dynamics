@@ -3,20 +3,17 @@ function [data, extinct_path, runtime] = optimal_trajectory_computation_environm
 % environmental reservoir using either time truncation t in [-\infty, \infty] ->
 % t' in [-T,T] or time transformation where t' = tanh(At).
 %
+% Run with 'optimal_trajectory_plotting.m'
 % 
-%
-% Used to produce Figure 6 in the paper based on set parameter values.
-%
-%
 %
 %   Usage:
 %       [data, extinct_path, runtime] = optimal_trajectory_computation_environmental_model('CTs')
 %       [data, extinct_path, runtime] = optimal_trajectory_computation_environmental_model('CTr')
 %  
+%
 %   Returns:
 %       data:                  [varying parameter, R0, action, max_Hmt, endemic_distance, df_distance, path_length]
 %       
-%       Plots:                 Figure 6
 %
 %   Required:
 %       algorithm:             Algorithm key: 'CTs' for time transformation;
@@ -59,12 +56,13 @@ options = bvpset('Vectorized','on','AbsTol',1e-04);
 PP = 0; QQ = 0; %policy parameters; PP: percentage of strategy given to preventive measures; QQ: percentage of strategy given to curative measures
 
 %% Parameter values
+
 lambda = 0.55;
 alpha = 0.35;
 gam = 1*(1+(0.2*QQ));
 phi = 5;
 
-beta_set = 1.1*(1-(0.2*PP));      
+set = 1.1*(1-(0.2*PP));      
 
 
 %Grid for solving bvp
@@ -72,14 +70,14 @@ gridnum = 100;
 
 
 %Initializing data to receive [Parameter, R0, action, max_Hmt, endemic_distance, df_distance, path_length]
-data = zeros(numel(beta_set),7);   
+data = zeros(numel(set),7);   
 
 %For each parameter set
-for iter_no = 1:numel(beta_set)
+for iter_no = 1:numel(set)
     
     if iter_no == 1
        
-        beta = beta_set(iter_no);
+        beta = set(iter_no);
         [R0, end_eq, df_eq, sisv_ode, Hmt] = sisv_bvp(beta, phi, lambda, alpha, gam);
 
 
@@ -131,7 +129,7 @@ for iter_no = 1:numel(beta_set)
 
     else 
         
-        beta = beta_set(iter_no);
+        beta = set(iter_no);
 
         [R0, end_eq, df_eq, sisv_ode, Hmt] = sisv_bvp(beta, phi, lambda, alpha, gam);
 
@@ -184,7 +182,7 @@ for iter_no = 1:numel(beta_set)
     end
 end
     
-        plot_traj_2_d(extinct_path, end_eq, df_eq);  
+        optimal_trajectory_plotting(extinct_path, end_eq, df_eq,T);  
         
         runtime = toc;
 
@@ -202,13 +200,24 @@ tic
 %setting solver options 
 options = bvpset('Vectorized','on','AbsTol',1e-04,'RelTol',1e-05,Nmax=50000);
 
-% Parameter Values
+
+%% Parameter values (Figure 6)
+beta = 60;
+lambda = 2755.75;
+alpha = 43.07;
+gam = 52.195;
+
+set = [0.00001,0.001];
+
+%{
+%% Parameter values (Figure 7)
 beta = 36.7;
 lambda = 50;
 alpha = 43;
 gam = 35;
 
 set = 0.001:3700;
+%}
 
 %Grid for solving bvp
 gridnum = 2; 
@@ -299,7 +308,7 @@ end
 
   
   %% Trajectory plots 
-  plot_traj_2_d(extinct_path, end_eq, df_eq,T)
+  optimal_trajectory_plotting(extinct_path, end_eq, df_eq,T)
        
   runtime = toc;
 
