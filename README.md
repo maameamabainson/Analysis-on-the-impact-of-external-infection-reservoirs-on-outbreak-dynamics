@@ -8,15 +8,15 @@ This code verifies the analytical results for the mean return time and
 the mean fadeout time with the eigenvalue approach to obtaining the same
 quantities.
 
-   Usage:
+  ### Usage:
    
-     R0 = animal_reservoir_model_verifying_analytical_result(kappa)
+    R0 = animal_reservoir_model_verifying_analytical_result(kappa)
   
-  Returns:
+  ### Returns:
   
       R0:                     Basic reproduction number
       
-  Required:
+  ### Required:
   
       kappa:                  Choice of kappa parameter, N*force of external infection.
 
@@ -28,7 +28,7 @@ environmental reservoir using either time truncation or time transformation.
 
 Run with 'optimal_trajectory_plotting.m
 
-Usage:
+### Usage:
 
 
  [data, extinct_path, runtime] = optimal_trajectory_computation_environmental_model('CTs')
@@ -38,13 +38,13 @@ Usage:
 
 
 
-Returns:
+### Returns:
 
 
  data:                  [varying parameter, R0, action, max_Hmt, endemic_distance, df_distance, path_length]      
 
  
-Required:
+### Required:
 
 
   algorithm:             Algorithm key: 'CTs' for time transformation; 'CTr' for time truncation
@@ -59,19 +59,19 @@ Underlying code used to plot optimal trajectories in Figure 6 in the paper.
 Run with 'optimal_trajectory_computation_environmental_model.m'
 
 
-Usage:
+### Usage:
 
 
    tok = optimal_trajectory_plotting(extinct_path, end_eq, df_eq,T) 
 
    
-Returns:
+### Returns:
 
 
    tok:                    Computational time
 
       
-Required:
+### Required:
 
 
  extinct_path:           Computed extinction optimal trajectory.
