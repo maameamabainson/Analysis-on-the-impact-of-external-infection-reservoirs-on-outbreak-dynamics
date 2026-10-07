@@ -3,7 +3,10 @@ function R0 = animal_reservoir_model_verifying_analytical_result(kappa)
 % the mean fadeout time with the eigenvalue approach to obtaining the same
 % quantities.
 %
-% It produces Figures 2,3 and 4 in the paper. 
+%
+% Used to produce Figures 2,3 and 4 in the paper. 
+%
+%
 %   Usage:
 %       R0 = animal_reservoir_model_verifying_analytical_result(kappa)
 %  
