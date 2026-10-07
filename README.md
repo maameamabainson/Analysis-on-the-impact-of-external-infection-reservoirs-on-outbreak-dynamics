@@ -9,13 +9,10 @@ the mean fadeout time with the eigenvalue approach to obtaining the same
 quantities.
 
   ### Usage:
-   
     R0 = animal_reservoir_model_verifying_analytical_result(kappa)
   ### Returns:
-  
       R0:                     Basic reproduction number    
   ### Required:
-  
       kappa:                  Choice of kappa parameter, N*force of external infection.
   
 - optimal_trajectory_computation_environmental_model.m
