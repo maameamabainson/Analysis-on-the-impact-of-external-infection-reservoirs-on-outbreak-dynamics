@@ -12,8 +12,9 @@ function [data, extinct_path, runtime] = optimal_trajectory_computation_environm
 %  
 %
 %   Returns:
-%       data:                  [varying parameter, R0, action, max_Hmt, endemic_distance, df_distance, path_length]
-%       
+%       data:               [varying parameter, R0, action, max_Hmt, endemic_distance, df_distance, path_length]
+%       extinct_path:       data on resulting optimal trajectory
+%       runtime:            Runtime
 %
 %   Required:
 %       algorithm:             Algorithm key: 'CTs' for time transformation;
