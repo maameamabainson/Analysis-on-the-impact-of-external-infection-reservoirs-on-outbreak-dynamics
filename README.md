@@ -29,7 +29,7 @@ quantities.
 This code computes the optimal trajectory (solution of the equations of motion) for the SIS model with
 environmental reservoir using either time truncation or time transformation.
 
-Run with 'optimal_trajectory_plotting.m
+Run with 'optimal_trajectory_plotting.m'
 
 #### Usage:
 
