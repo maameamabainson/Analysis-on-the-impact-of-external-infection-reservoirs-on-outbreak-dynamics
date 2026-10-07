@@ -9,30 +9,38 @@ the mean fadeout time with the eigenvalue approach to obtaining the same
 quantities.
 
    Usage:
+   
      R0 = animal_reservoir_model_verifying_analytical_result(kappa)
   
   Returns:
+  
       R0:                     Basic reproduction number
+      
   Required:
+  
       kappa:                  Choice of kappa parameter, N*force of external infection.
 
   
 - optimal_trajectory_computation_environmental_model.m
 
 This code computes the optimal trajectory (solution of the equations of motion) for the SIS model with
-environmental reservoir using either time truncation t in [-\infty, \infty] ->
-t' in [-T,T] or time transformation where t' = tanh(At).
+environmental reservoir using either time truncation or time transformation.
+
 Run with 'optimal_trajectory_plotting.m
 
 Usage:
+
  [data, extinct_path, runtime] = optimal_trajectory_computation_environmental_model('CTs')
+ 
  [data, extinct_path, runtime] = optimal_trajectory_computation_environmental_model('CTr')
 
 
 Returns:
+
  data:                  [varying parameter, R0, action, max_Hmt, endemic_distance, df_distance, path_length]      
  
 Required:
+
   algorithm:             Algorithm key: 'CTs' for time transformation;
                                         'CTr' for time truncation
 
@@ -44,15 +52,21 @@ Underlying code used to plot optimal trajectories in Figure 6 in the paper.
 Run with 'optimal_trajectory_computation_environmental_model.m'
 
 Usage:
+
    tok = optimal_trajectory_plotting(extinct_path, end_eq, df_eq,T) 
    
 Returns:
+
    tok:                    Computational time
       
 Required:
+
  extinct_path:           Computed extinction optimal trajectory.
+ 
  end_eq:                 Corresponding endemic equilibrium (start point)
+ 
  df_eq:                  Corresponding disease-free equilibrium (end point)
+ 
  T:                      Absolute value of truncated/transformed time endpoint
 
 
