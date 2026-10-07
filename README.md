@@ -19,7 +19,7 @@ quantities.
 - Comparison plots of  analytical and eigenvalue method results for mean return time and mean fadeout time
     
 #### Required:
-- kappa parameter of choice or N*force of external infection
+- kappa: kappa parameter of choice or N*force of external infection
       
 
 
@@ -29,7 +29,7 @@ quantities.
 This code computes the optimal trajectory (solution of the equations of motion) for the SIS model with
 environmental reservoir using either time truncation or time transformation.
 
-Run with 'optimal_trajectory_plotting.m'
+Runs with 'optimal_trajectory_plotting.m'
 
 #### Usage:
 
@@ -63,7 +63,7 @@ Run with 'optimal_trajectory_plotting.m'
 Underlying code used to plot optimal trajectories in Figure 6 in the paper.
 
 
-Run with 'optimal_trajectory_computation_environmental_model.m'
+Runs with 'optimal_trajectory_computation_environmental_model.m'
 
 
 #### Usage:
@@ -92,7 +92,7 @@ Run with 'optimal_trajectory_computation_environmental_model.m'
   - df_eq: Corresponding disease-free equilibrium (end point)
 
  
- - T: Absolute value of truncated/transformed time endpoint
+ - T: Absolute value of the truncated/transformed time endpoints
 
 
 
