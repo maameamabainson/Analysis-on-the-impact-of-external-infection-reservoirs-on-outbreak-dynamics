@@ -27,8 +27,8 @@ function R0 = animal_reservoir_model_verifying_analytical_result(kappa)
     N_set = 100:50:900;
     R0 = beta/gam;
     
-    MFT_set1 = NaN(2,numel(N_set));
-    MFT_set2 = NaN(2,numel(N_set));
+    mrt_set = NaN(2,numel(N_set));
+    mft_set = NaN(2,numel(N_set));
     
     for idx = 1:numel(N_set)
     
@@ -42,13 +42,13 @@ function R0 = animal_reservoir_model_verifying_analytical_result(kappa)
         %% Computing stationary distribution & mean return time by the eigenvalue method
         [u,~] = eigs(transpose(Q),1,'sm');
         u_3 = u./sum(u);
-        mean_return = 1/(u_3(1)*k);
+        mean_return_eigen = 1/(u_3(1)*k);
   
     
         %% Computing the quasistationary distribution & mean fadeout time from endemicity by the eigenvalue method
         [~,uevl_qsd] = eigs(transpose(Q_trunc),1,'sm');
         alpha = -uevl_qsd;
-        MFT_eigen = 1/alpha;
+        mean_fadeout_eigen = 1/alpha;
     
         %% Analytical tau Eq(3.15) 
         nu = k/beta;
@@ -56,11 +56,11 @@ function R0 = animal_reservoir_model_verifying_analytical_result(kappa)
         denom = (N^(0.5-nu))*gamma(nu + 1)*beta; 
         tau_analytical = (numer/denom)*((R0/(R0-1))^(1-nu))*exp(N*(log(R0) - 1 + (1/R0))); 
        
-        MFT_set1(:,idx) = [tau_analytical;mean_return];
+        mrt_set(:,idx) = [tau_analytical;mean_return_eigen];
     
         %% Analytical tau_z Eq(3.17)
         tau_z_analytical = (R0/(R0-1))*tau_analytical;
-        MFT_set2(:,idx) = [tau_z_analytical;MFT_eigen];
+        mft_set(:,idx) = [tau_z_analytical;mean_fadeout_eigen];
     
      
     end 
@@ -71,28 +71,28 @@ function R0 = animal_reservoir_model_verifying_analytical_result(kappa)
     %% Plots 
     figure()
     subplot(2,1,1)
-    semilogy(N_set,MFT_set1(1,:),'k.',N_set,MFT_set1(2,:),'b*','MarkerSize',15)
+    semilogy(N_set,mrt_set(1,:),'k.',N_set,mrt_set(2,:),'b*','MarkerSize',15)
     xlabel('Population size, N','Interpreter','latex')
     ylabel('Mean return time','Interpreter','latex')
     legend('$\tau$','Eigenvalue result','Interpreter','latex','Location','southeast')
     legend('boxoff')
     
     subplot(2,1,2)
-    semilogy(N_set,MFT_set1(1,:)./MFT_set1(2,:),'k.','MarkerSize',12)
+    semilogy(N_set,mrt_set(1,:)./mrt_set(2,:),'k.','MarkerSize',12)
     ylim([1e-4 1e1])
     xlabel('Population size, N','Interpreter','latex')
     ylabel('Ratio','Interpreter','latex')
     
     figure()
     subplot(2,1,1)
-    semilogy(N_set,MFT_set2(1,:),'r.',N_set,MFT_set2(2,:),'k*','MarkerSize',15)
+    semilogy(N_set,mft_set(1,:),'r.',N_set,mft_set(2,:),'k*','MarkerSize',15)
     legend('$\tau_z$','Eigenvalue result','Interpreter','latex','Location','southeast')
     legend('boxoff')
     xlabel('Population size, N', 'Interpreter','latex')
     ylabel('Mean fade out time', 'Interpreter','latex')
     
     subplot(2,1,2)
-    semilogy(N_set,MFT_set2(1,:)./MFT_set2(2,:),'r.','MarkerSize',15)
+    semilogy(N_set,mft_set(1,:)./mft_set(2,:),'r.','MarkerSize',15)
     xlabel('Population size, N','Interpreter','latex')
     ylabel('Ratio','Interpreter','latex')
     
