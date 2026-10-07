@@ -11,7 +11,7 @@ quantities.
  
 #### Usage:
 
-animal_reservoir_model_verifying_analytical_result(kappa)
+    animal_reservoir_model_verifying_analytical_result(kappa)
     
 #### Returns:
 - Basic reproduction number 
@@ -34,11 +34,11 @@ Run with 'optimal_trajectory_plotting.m
 #### Usage:
 
 
- optimal_trajectory_computation_environmental_model('CTs')
+    optimal_trajectory_computation_environmental_model('CTs')
  
  or 
  
- optimal_trajectory_computation_environmental_model('CTr')
+    optimal_trajectory_computation_environmental_model('CTr')
 
 
 #### Returns:
@@ -69,7 +69,7 @@ Run with 'optimal_trajectory_computation_environmental_model.m'
 #### Usage:
 
 
-   optimal_trajectory_plotting(extinct_path, end_eq, df_eq,T) 
+    optimal_trajectory_plotting(extinct_path, end_eq, df_eq,T) 
 
    
 #### Returns:
