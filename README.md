@@ -94,7 +94,7 @@ Runs with 'optimal_trajectory_computation_environmental_model.m'
  
  - T: Absolute value of the truncated/transformed time endpoints
 
-## Software:
+## Software
 MATLAB version 2024b
 
 #### Clone this repository
