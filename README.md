@@ -97,9 +97,9 @@ Runs with 'optimal_trajectory_computation_environmental_model.m'
 ## Software:
 MATLAB version 2024b
 
-## Clone this repository
+#### Clone this repository
 
-  git clone https://github.com/maameamabainson/Analysis-on-the-impact-of-external-infection-reservoirs-on-outbreak-dynamics
+    git clone https://github.com/maameamabainson/Analysis-on-the-impact-of-external-infection-reservoirs-on-outbreak-dynamics
 
 
 
