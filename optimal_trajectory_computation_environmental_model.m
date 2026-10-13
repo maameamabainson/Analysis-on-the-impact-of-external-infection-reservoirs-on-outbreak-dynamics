@@ -28,7 +28,7 @@ function [data, extinct_path, runtime] = optimal_trajectory_computation_environm
 %
 %   Adapted: 05-02-2026
 %   Author: Maame Ama Bainson
-%   Programme version: MATLAB 2024b
+
 
 
 
