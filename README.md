@@ -99,7 +99,7 @@ MATLAB version 2024b
 
 #### Clone this repository
 
-    git clone https://github.com/maameamabainson/Analysis-on-the-impact-of-external-infection-reservoirs-on-outbreak-dynamics
+    $ git clone https://github.com/maameamabainson/Analysis-on-the-impact-of-external-infection-reservoirs-on-outbreak-dynamics.git
 
 
 
