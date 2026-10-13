@@ -16,7 +16,6 @@ function R0 = animal_reservoir_model_verifying_analytical_result(kappa)
 %   
 %   Created: 18-04-2025
 %   Author: Maame Ama Bainson
-%   Programme version: MATLAB 2024b
 
 
 
