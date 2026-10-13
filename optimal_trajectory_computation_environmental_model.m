@@ -23,10 +23,10 @@ function [data, extinct_path, runtime] = optimal_trajectory_computation_environm
 %
 %   References:
 %   Clancy, D. and Stewart, J.J., 2025. Computing the extinction path for epidemic models. Mathematical Biosciences, 386, p.109454.
+%   Link to original code: https://arxiv.org/src/2412.15059v1/anc
 %
 %
-%
-%   Created: 05-02-2026
+%   Adapted: 05-02-2026
 %   Author: Maame Ama Bainson
 %   Programme version: MATLAB 2024b
 
